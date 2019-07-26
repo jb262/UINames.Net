@@ -18,8 +18,7 @@ Public Module NameGenerator
     ''' <param name="minLen">Minimum charachters of the person's name to be generated. Optional, zero if not specified.</param>
     ''' <param name="maxLen">Maximum characters of the person's name to be generated. Optional, unbounded if not specifed.</param>
     ''' <returns>A randomly generated name with the information retrieved from the uinames API.</returns>
-    ''' <remarks>Non-Latin names will probably be displayed as some funny characters.
-    ''' Furthermore, multiple parameters do not seem to be supported at the moment as they result either in error messages or unexpected values.</remarks>
+    ''' <remarks>Non-Latin names will probably be displayed as some funny characters.</remarks>
     Public Function GetName(Optional gender As Gender = Gender.NotSpecified,
                             Optional region As RegionInfo = Nothing, Optional minLen? As Integer = Nothing,
                             Optional maxLen? As Integer = Nothing) As Name
@@ -39,8 +38,7 @@ Public Module NameGenerator
     ''' <param name="minLen">Minimum charachters of the persons' names to be generated. Optional, zero if not specified.</param>
     ''' <param name="maxLen">Maximum characters of the persons' names to be generated. Optional, unbounded if not specifed.</param>
     ''' <returns>IEnumerable of type Name containing the specified number of names.</returns>
-    ''' <remarks>Non-Latin names will probably be displayed as some funny characters.
-    ''' Furthermore, multiple parameters do not seem to be supported at the moment as they result either in error messages or unexpected values.</remarks>
+    ''' <remarks>Non-Latin names will probably be displayed as some funny characters.</remarks>
     Public Function GetNames(amount As UShort, Optional gender As Gender = Gender.NotSpecified,
                             Optional region As RegionInfo = Nothing, Optional minLen? As Integer = Nothing,
                             Optional maxLen? As Integer = Nothing) As IEnumerable(Of Name)
