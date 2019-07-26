@@ -1,4 +1,4 @@
-﻿Imports System.Globalization
+Imports System.Globalization
 Imports System.Net
 Imports System.Text
 ''' <summary>
@@ -37,19 +37,19 @@ Friend Module APIUtil
         Dim parmString As String = String.Empty
 
         If Not amount Is Nothing Then
-            parameters.Add("amount={amount}")
+            parameters.Add($"amount={amount}")
         End If
         If Not gender = Gender.NotSpecified Then
-            parameters.Add("gender={[Enum].GetName(gender.GetType(), gender).ToLower()}")
+            parameters.Add($"gender={[Enum].GetName(gender.GetType(), gender).ToLower()}")
         End If
         If Not region Is Nothing Then
-            parameters.Add("region={region.EnglishName.ToLower()}")
+            parameters.Add($"region={region.EnglishName.ToLower()}")
         End If
         If Not minLen Is Nothing Then
-            parameters.Add("minLen={minLen}")
+            parameters.Add($"minLen={minLen}")
         End If
         If Not maxLen Is Nothing Then
-            parameters.Add("maxLen={minLen}")
+            parameters.Add($"maxLen={minLen}")
         End If
 
         If parameters.Count > 0 Then
