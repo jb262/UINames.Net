@@ -49,7 +49,7 @@ Friend Module APIUtil
             parameters.Add($"minLen={minLen}")
         End If
         If Not maxLen Is Nothing Then
-            parameters.Add($"maxLen={minLen}")
+            parameters.Add($"maxLen={maxLen}")
         End If
 
         If parameters.Count > 0 Then
