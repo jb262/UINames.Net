@@ -1,6 +1,6 @@
 Imports System.Globalization
 Imports System.Net
-Imports System.Text
+
 ''' <summary>
 ''' Internal module for functions needed for the API call.
 ''' </summary>
