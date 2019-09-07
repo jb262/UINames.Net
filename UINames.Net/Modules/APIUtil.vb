@@ -1,5 +1,6 @@
 Imports System.Globalization
 Imports System.Net
+Imports System.Text
 
 ''' <summary>
 ''' Internal module for functions needed for the API call.
@@ -14,6 +15,7 @@ Friend Module APIUtil
         Dim result As String = String.Empty
 
         Using webClient As New WebClient()
+            webClient.Encoding = Encoding.UTF8
             result = webClient.DownloadString(url)
         End Using
 

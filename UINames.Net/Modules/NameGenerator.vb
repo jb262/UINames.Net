@@ -38,10 +38,14 @@ Public Module NameGenerator
     ''' <param name="minLen">Minimum charachters of the persons' names to be generated. Optional, zero if not specified.</param>
     ''' <param name="maxLen">Maximum characters of the persons' names to be generated. Optional, unbounded if not specifed.</param>
     ''' <returns>IEnumerable of type Name containing the specified number of names.</returns>
-    ''' <remarks>Non-Latin names will probably be displayed as some funny characters.</remarks>
+    ''' <raise>Argument exception, if the user tries to request less than 2 or more than 500 names.
+    ''' If the user wants to generate a single name, the use of the GetName method is recommended. The API does not allow more than 500 requests at a single time.</raise>
     Public Function GetNames(amount As UShort, Optional gender As Gender = Gender.NotSpecified,
                             Optional region As RegionInfo = Nothing, Optional minLen? As Integer = Nothing,
                             Optional maxLen? As Integer = Nothing) As IEnumerable(Of Name)
+        If amount < 2 Or amount > 500 Then
+            Throw New ArgumentException("Amount of requested names must be between 2 and 500. If you want to generate a single name, use the GetName method instead.")
+        End If
         Dim url As String = BuildUrl(baseUrl, gender, region, minLen, maxLen, amount)
         Dim response As String = GetResponse(url)
         Dim names As IEnumerable(Of Name) = JsonConvert.DeserializeObject(Of IEnumerable(Of Name))(response)
