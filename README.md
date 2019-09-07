@@ -16,7 +16,7 @@ A person's gender.
 ##### 1.1.4 Region: String
 The region name a person is coming from.
 #### 2. Gender (Enum)
-uinames.com does not provide other genders than female or male. Other genders will be represented as not specified in this library. This is not to be meant to be disrespectful to anyone identifying as any other gender than the conventional binary representation.
+uinames.com does not provide other genders than female or male. Other genders will be represented as "not specified" in this library. This is not to be meant to be disrespectful to anyone identifying as any other gender than the conventional binary representation.
 ##### 2.1 Values
 * NotSpecified
 * Female
@@ -32,11 +32,11 @@ If the region is specified, the name will be one of a person coming from the giv
 
 If the minLength is specified, the person's name will be at least as long as the given number, otherwise its minumum length will be zero.
 
-If the maxLength is spcified, the person's name will be at most as long as the given number, otherwise its maximum legth will be unbounded.
+If the maxLength is specified, the person's name will be at most as long as the given number, otherwise its maximum length will be unbounded.
 #### 2. GetNames(amount: Integer, gender: Gender (optional, default: Gender.NotSpecified), region (optional, default: null): System.Globalization.RegionInfo, minLength (optional, nullable, default: null): Integer, maxLength (optional, nullable, default: null): Integer): IEnumerable<Name>
 This method returns an enumerable of a given length of names from the API.
   
-The amount parameter specifies the number of names to be created.
+The amount parameter specifies the number of names to be created. If the amount is smaller than 2 or greater than 500, an exception will be thrown. If the user wants a single name to be generated, the use of the GetName method is recommended. The upper bound is provided by the API itself.
 
 If a gender is specified, the names will be ones of persons of the given gender, otherwise they will be random.
 
@@ -44,6 +44,6 @@ If the region is specified, the names will be one of persons coming from the giv
 
 If the minLength is specified, the persons' names will be at least as long as the given number, otherwise their minumum length will be zero.
 
-If the maxLength is spcified, the persons' names will be at most as long as the given number, otherwise their maximum legth will be unbounded.
+If the maxLength is specified, the persons' names will be at most as long as the given number, otherwise their maximum length will be unbounded.
 #### Remarks
-Non-Latin names, such as Greek, Chinese, etc. and umlauts, might be displayed as some funny characters.
+The API limits the users' requests to 7 requests per minute. A single request is limited to 500 names, so the API allows requesting 3,500 random names per minute. 
