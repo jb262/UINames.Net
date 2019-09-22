@@ -1,8 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <RootNamespace>UINames.Net</RootNamespace>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Jan Braunschmidt</Authors>
+    <Company />
+    <Description>Basic wrapper for the API of uinames.com, an online random name generator.</Description>
+    <PackageTags>random name names generator api wrapper uinames uinames.com</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/jb262/UINames.Net</RepositoryUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
